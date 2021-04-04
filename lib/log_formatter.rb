@@ -1,4 +1,4 @@
-require './custom_parser'
+require_relative 'custom_parser'
 
 # intentionally set this class name to match the module's class name, to explain the benefits of using modules
 class LogFormatter

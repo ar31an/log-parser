@@ -1,4 +1,4 @@
-require_relative '../log_formatter'
+require_relative '../lib/log_formatter'
 
 describe LogFormatter do
   context 'when file does not exist or file is not passed as an argument' do

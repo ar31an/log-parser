@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './log_formatter'
+require './lib/log_formatter'
 
 LogFormatter.new(ARGV.first).run_script

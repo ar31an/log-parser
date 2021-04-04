@@ -1,4 +1,4 @@
-require_relative '../custom_parser'
+require_relative '../lib/custom_parser'
 
 describe CustomParser::LogFormatter do
   context 'when file does not exist or file is not passed as an argument' do
