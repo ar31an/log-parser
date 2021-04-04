@@ -5,10 +5,15 @@ Simple OO based ruby script to parse log file and display formatted data!!!
 # Files
 
 **custom_parser.rb** module contains all the logic used to parse and format the log file.
+
 **log_formatter.rb** class utilizes the parser module by using the ***include*** keyword.
+
 **log_formatter2.rb** class utilizes the parser module by using the ***extend*** keyword.
+
 **parser.rb** and **parser2.rb** for executing scripts on class and instance level.
+
 **webserver.log** log file to perform operations on.
+
 **Gemfile** contains ***rspec*** for testing specs.
 
 # Usage
