@@ -2,4 +2,4 @@
 
 require './lib/log_formatter'
 
-LogFormatter.new(ARGV.first).run_script
+LogFormatter.new(ARGV.first).format_and_exhibit
