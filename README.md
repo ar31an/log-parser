@@ -4,43 +4,43 @@ Simple OO based ruby script to parse log file and display formatted data!!!
 
 
 
-# Dependency
+# Dependencies
 
-**Ruby 2.7.5** rvm install 2.7.5
+**Ruby** - `rvm install 2.7.5`
 
-**Bundler 2.3.12** gem install bundler -v '2.3.12'
-
-**Bundle** bundle install
+**Bundler** - `gem install bundler -v '2.3.12'`
 
 
 
 # Usage
 
-**Set Permissions** chmod +x parser.rb
+**Bundle** - `bundle install`
 
-**Execute with invalid log file** ./parser.rb unknown.log
+**Set Permissions** - `chmod +x parser.rb`
 
-**Execute with invalid log file type** ./parser.rb webserver.txt
+**Execute with invalid log file** - `./parser.rb unknown.log`
 
-**Execute with empty log file** ./parser.rb webserver_empty.log
+**Execute with invalid log file type** - `./parser.rb webserver.txt`
 
-**Execute with valid log file** ./parser.rb webserver.log
+**Execute with empty log file** - `./parser.rb webserver_empty.log`
 
-**Sort in ascending order** ./parser.rb webserver.log asc
+**Execute with valid log file** - `./parser.rb webserver.log`
 
-**Sort in descending order** ./parser.rb webserver.log desc
+**Sort in ascending order** - `./parser.rb webserver.log asc`
+
+**Sort in descending order** - `./parser.rb webserver.log desc`
 
 
 
 # Test Cases
 
-**Run the specs** bundle exec rspec
+**Run** - `bundle exec rspec`
 
 
 
 # Rubocop
 
-**Run rubocop** rubocop
+**Run** - `rubocop`
 
 
 
@@ -68,4 +68,4 @@ Simple OO based ruby script to parse log file and display formatted data!!!
 
 # Improvements
 
-**Fixtures** can use fixtures for the specs.
+**Fixtures** can be used for the specs.
