@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
-require './lib/log_formatter'
+require 'byebug'
+require 'colorize'
+require 'ipaddress'
+require 'mimemagic'
 
-LogFormatter.new(ARGV.first).format_and_exhibit
+Dir['./lib/**/*.rb'].sort.each { |file| require file }
+
+LogFormatter.new(ARGV[0], ARGV[1]).format_and_exhibit

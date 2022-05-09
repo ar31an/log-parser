@@ -1,25 +1,44 @@
-module Log
-  class SortedCounter
-    attr_reader :log_data
+# frozen_string_literal: true
 
-    def initialize(log_data)
-      @log_data = log_data
+require './lib/base_log'
+
+module Log
+  # Processes log file and builds stats!
+  class SortedCounter < BaseLog
+    def initialize(log_file, args = {})
+      super()
+
+      @log_file = log_file
+      @args     = args
+
+      @entries = {}
     end
 
-    def process
-      # tally method is introduced in ruby 2.7, so that's why the check
-      if RUBY_VERSION.to_f >= 2.7
-        filter_log.tally
-      else
-        filter_log.group_by(&:itself).transform_values(&:count)
-      end.sort_by { |_, v| -v }
+    def count_and_sort
+      read_lines
+
+      # if all records are needed then count all.
+      # if unique records are needed then count only unique records.
+      # apply the ascending/descending order.
+      entries.transform_values { |v| args[:uniq] ? v.uniq.count : v.count }
+             .sort_by { |_, v| args[:sort_direction] == 'asc' ? v : -v }
     end
 
     private
 
-    def filter_log
-      # throw out the IP address part
-      log_data.map { |d| d.split.first }
+    attr_reader :args, :entries
+
+    def read_lines
+      File.open(log_file) do |file|
+        file.each_line do |line|
+          page, ip = line.split
+
+          next unless Log::Validator.validate(page: page, ip: ip)
+
+          @entries[page] ||= []
+          @entries[page] << ip
+        end
+      end
     end
   end
 end
